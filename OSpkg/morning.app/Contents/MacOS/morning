@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+DIR=$(cd .. ; pwd)
+ARCH=$(uname -m)
+if [[ "$ARCH" == "arm64" ]]; then
+    JAVA_OPTS="--module-path $DIR/lib/aarch64 --add-modules javafx.controls,javafx.fxml"
+elif [[ "$ARCH" == "x86_64" ]]; then
+    JAVA_OPTS="--module-path $DIR/lib/intel --add-modules javafx.controls,javafx.fxml"
+else
+
+    exit 1
+fi
+
+java $JAVA_OPTS -jar "$DIR/Resources/app-all.jar"
