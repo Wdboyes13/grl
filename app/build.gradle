@@ -110,7 +110,7 @@ tasks.named('build') {
 
 task upload(type: Exec) {
     dependsOn packapp
-    commandLine 'bash', '-c', "git add . && git commit -m '${cmsg}' && git tag -f ${version} && git push -f origin ${version} && git push origin main"
+    commandLine 'bash', '-c', "cd ~/coding/grl && git add . && git commit -m '${cmsg}' && git tag -f ${version} && git push -f origin ${version} && git push origin main"
 }
 
 task publish(type: Exec) {
