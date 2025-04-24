@@ -11,9 +11,9 @@ public class Tasks {
     static String[] day1 = {"Saxophone", "Woodshop Shoes", "Band Music"};
     static String[] day2 = {"Book/Kobo", "PE Shoes"};
     public static void putIndex(Stage primStage){
-        taskMap.put("morning", () -> ShowTasks.showTasks(primStage, morning));
-        taskMap.put("bag", () -> ShowTasks.showTasks(primStage, bag));
-        taskMap.put("day1", () -> ShowTasks.showTasks(primStage, day1));
-        taskMap.put("day2", () -> ShowTasks.showTasks(primStage, day2));
+        taskMap.put("morning", () -> ShowTasks.showTasks(primStage, morning, "morning"));
+        taskMap.put("bag", () -> ShowTasks.showTasks(primStage, bag, "bag"));
+        taskMap.put("day1", () -> ShowTasks.showTasks(primStage, day1, "day1"));
+        taskMap.put("day2", () -> ShowTasks.showTasks(primStage, day2, "day2"));
     }
 }
