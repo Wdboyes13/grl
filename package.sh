@@ -1,3 +1,4 @@
+latest_jar=$(ls -t ~/coding/grl/app/build/libs/*-all.jar | head -n 1)
 # copy Linux JFX
 cp ~/coding/grl/app/build/javafx-libs/javafx-base-21-linux.jar ~/coding/grl/pkg/lib/linux/
 cp ~/coding/grl/app/build/javafx-libs/javafx-graphics-21-linux.jar ~/coding/grl/pkg/lib/linux/
@@ -22,6 +23,6 @@ cp ~/coding/grl/app/build/javafx-libs/javafx-graphics-21-win.jar ~/coding/grl/pk
 cp ~/coding/grl/app/build/javafx-libs/javafx-fxml-21-win.jar ~/coding/grl/pkg/lib/win/
 cp ~/coding/grl/app/build/javafx-libs/javafx-controls-21-win.jar ~/coding/grl/pkg/lib/win/
 
-cp ~/coding/grl/app/build/libs/app-all.jar ~/coding/grl/pkg/app-all.jar
+cp "$latest_jar" ~/coding/grl/pkg/app-all.jar
 chmod +x ~/coding/grl/pkg/run.sh
 tar czf morning.tar.gz ~/coding/grl/pkg
