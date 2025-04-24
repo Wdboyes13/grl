@@ -16,6 +16,7 @@ public class ShowTasks {
         root.getChildren().add(back);
         Text label = new Text(Menu.text);
         label.setTranslateX(100);
+        root.getChildren().add(label);
         List<CheckBox> checkBoxes;
 
         if (checkboxCache.containsKey(taskListName)){
