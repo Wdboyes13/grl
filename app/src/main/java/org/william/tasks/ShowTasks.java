@@ -12,7 +12,7 @@ public class ShowTasks {
         Group root = new Group();
         root.getChildren().add(back);
         int stx = 20;
-        int sty = 20;
+        int sty = 40;
         int xsec = 0;
         for (int i=0; i < tasks.length; i++){
             if (xsec == 10) {

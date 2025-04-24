@@ -2,7 +2,7 @@
 set -e
 
 OS=$(uname -s)
-
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 case "$OS" in
     Linux*)     PLATFORM=linux;;
     Darwin*)    PLATFORM=mac;;
@@ -14,16 +14,16 @@ echo "Detected OS: $PLATFORM"
 
 if [ "$PLATFORM" = "linux" ]; then
     echo "🐧 Running Linux-specific packaging..."
-    JAVA_OPTS="--module-path lib/linux --add-modules javafx.controls,javafx.fxml"
+    JAVA_OPTS="--module-path $SCRIPT_DIR/lib/linux --add-modules javafx.controls,javafx.fxml"
 elif [ "$PLATFORM" = "mac" ]; then
     echo "🍎 Running macOS-specific packaging..."
     ARCH=$(uname -m)
     if [[ "$ARCH" == "arm64" ]]; then
         echo "🍏 Apple Silicon (ARM64) detected!"
-        JAVA_OPTS="--module-path lib/mac-aarch --add-modules javafx.controls,javafx.fxml"
+        JAVA_OPTS="--module-path $SCRIPT_DIR/lib/mac-aarch --add-modules javafx.controls,javafx.fxml"
     elif [[ "$ARCH" == "x86_64" ]]; then
         echo "🍏 Intel (x86_64) detected!"
-        JAVA_OPTS="--module-path lib/mac --add-modules javafx.controls,javafx.fxml"
+        JAVA_OPTS="--module-path $SCRIPT_DIR/lib/mac --add-modules javafx.controls,javafx.fxml"
     else
         echo "🤔 Unknown Mac architecture: $ARCH"
         exit 1
@@ -38,4 +38,4 @@ fi
 
 # Common run command for Linux and Mac
 echo "🚀 Launching app..."
-java $JAVA_OPTS -jar app-all.jar
+java $JAVA_OPTS -jar $SCRIPT_DIR/app-all.jar
