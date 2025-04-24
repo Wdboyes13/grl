@@ -123,5 +123,5 @@ task publish(type: Exec) {
             throw new GradleException('Publish aborted by user.')
         }
     }
-    commandLine 'gh', 'release', 'create', version, 'task.tar.gz', '--generate-notes', '--latest=true'
+    commandLine 'gh', 'release', 'create', version, 'OSpkg/morning.app.zip', '--generate-notes', '--latest=true'
 }
