@@ -28,7 +28,7 @@ public class ShowTasks {
             root.getChildren().add(text);
             xsec += 1;
         }
-        Scene scene = new Scene(root, 500, 350);
+        Scene scene = new Scene(root, 200, 300);
         primStage.setScene(scene);
         primStage.show();
     }
