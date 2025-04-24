@@ -29,20 +29,13 @@ public class ShowTasks {
 
         int stx = 20;
         int sty = 40;
-        int xsec = 0;
         for (CheckBox checkbox : checkBoxes){
-            if (xsec == 10) {
-                stx += 100;
-                sty = 20;
-                xsec = 0;
-            }
             checkbox.setTranslateX(stx);
             checkbox.setTranslateY(sty);
             sty += 30;
             root.getChildren().add(checkbox);
-            xsec += 1;
         }
-        Scene scene = new Scene(root, 200, 350);
+        Scene scene = new Scene(root, 200, 400);
         primStage.setScene(scene);
         primStage.show();
     }

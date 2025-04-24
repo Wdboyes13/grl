@@ -19,7 +19,7 @@ public class Menu {
             root.getChildren().add(buttons[i]);
             btnY += 40;
         }
-        Scene scene = new Scene(root, 200, 350);
+        Scene scene = new Scene(root, 200, 400);
         primStage.setScene(scene);
         primStage.show();
     }
