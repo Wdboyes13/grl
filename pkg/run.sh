@@ -50,4 +50,9 @@ fi
 
 # Common run command for Linux and Mac
 echo "🚀 Launching app..."
-exec java $COMMON_JAVA_OPTS $JAVA_OPTS -jar $SCRIPT_DIR/app-all.jar
+java $COMMON_JAVA_OPTS $JAVA_OPTS -jar $SCRIPT_DIR/app-all.jar
+if [ "$PLATFORM" = "mac" ]; then
+    osascript -e 'tell application "Terminal" to close (every window whose frontmost is true)'
+fi
+
+exit 0

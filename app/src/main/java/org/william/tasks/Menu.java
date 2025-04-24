@@ -14,7 +14,7 @@ public class Menu {
     Group root = new Group();
         for (int i = 0; i < buttons.length; i++){
             final int index = i;
-            buttons[i].setOnAction(e -> {Tasks.taskMap.get(btnLists[index]).run(); Menu.text = buttons[index].getText();});
+            buttons[i].setOnAction(e -> {Menu.text = buttons[index].getText(); Tasks.taskMap.get(btnLists[index]).run(); });
             buttons[i].setTranslateX(btnX);
             buttons[i].setTranslateY(btnY);
             root.getChildren().add(buttons[i]);
