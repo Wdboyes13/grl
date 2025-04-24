@@ -10,6 +10,24 @@ case "$OS" in
     *)          PLATFORM=unknown;;
 esac
 
+COMMON_JAVA_OPTS="
+  -XX:+TieredCompilation
+  -XX:+UseCompressedOops
+  -XX:+UseStringDeduplication
+  -XX:+UseNUMA
+  -XX:+UseFastAccessorMethods
+  -XX:+OptimizeStringConcat
+  -XX:+AlwaysPreTouch
+  -Xverify:none
+  -Xshare:auto
+  -XX:+UnlockExperimentalVMOptions
+  -XX:+TrustFinalNonStaticFields
+  -XX:+UseG1GC
+  -XX:+UseLargePages
+  -Dsun.java2d.opengl=true
+  -Djava.awt.headless=false
+"
+
 echo "Detected OS: $PLATFORM"
 
 if [ "$PLATFORM" = "linux" ]; then
@@ -38,4 +56,4 @@ fi
 
 # Common run command for Linux and Mac
 echo "🚀 Launching app..."
-java $JAVA_OPTS -jar $SCRIPT_DIR/app-all.jar
+exec java $COMMON_JAVA_OPTS $JAVA_OPTS -jar $SCRIPT_DIR/app-all.jar
