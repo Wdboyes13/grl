@@ -67,7 +67,7 @@ tasks.register('runPackScript', Exec) {
     args '/Users/william/coding/grl/package.sh'
 }
 tasks.register('packapp', Exec) {
-    dependsOn 'mkJar', 'copyJavafxLibs'
+    dependsOn 'runPackScript'
     group = 'build'
     description = 'Runs the packaging script to create .app macOS app file Universal'
 
@@ -105,11 +105,11 @@ tasks.register('mkJar', Jar) {
 }
 
 tasks.named('build') {
-    dependsOn 'runPackScript', 'packapp'
+    dependsOn 'upload'
 }
 
 task upload(type: Exec) {
-    dependsOn build
+    dependsOn packapp
     commandLine 'bash', '-c', "git add . && git commit -m '${cmsg}' && git tag -f ${version} && git push -f origin ${version} && git push origin main"
 }
 
@@ -123,5 +123,5 @@ task publish(type: Exec) {
             throw new GradleException('Publish aborted by user.')
         }
     }
-    commandLine 'gh', 'release', 'create', version, 'OSpkg/morning.app.zip', '--generate-notes', '--latest=true'
+    commandLine 'gh', 'release', 'create', version, '~/coding/grl/OSpkg/morning.app.zip', '--generate-notes', '--latest=true'
 }
