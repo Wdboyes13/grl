@@ -5,7 +5,7 @@ import javafx.stage.*;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import java.util.*;
-
+import javafx.scene.text.*;
 public class ShowTasks {
     private static final Map<String, List<CheckBox>> checkboxCache = new HashMap<>();
     public static void showTasks(Stage primStage, String[] tasks, String taskListName){
@@ -14,7 +14,8 @@ public class ShowTasks {
         back.setOnAction(e -> Menu.showMain(primStage));
         Group root = new Group();
         root.getChildren().add(back);
-
+        Text label = new Text(Menu.text);
+        label.setTranslateX(100);
         List<CheckBox> checkBoxes;
 
         if (checkboxCache.containsKey(taskListName)){

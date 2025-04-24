@@ -4,6 +4,7 @@ import javafx.stage.*;
 import javafx.scene.control.Button;
 
 public class Menu {
+    public static String text = "";
     public static void showMain(Stage primStage){
         Tasks.putIndex(primStage);
     int btnY = 20;
@@ -13,7 +14,7 @@ public class Menu {
     Group root = new Group();
         for (int i = 0; i < buttons.length; i++){
             final int index = i;
-            buttons[i].setOnAction(e -> Tasks.taskMap.get(btnLists[index]).run());
+            buttons[i].setOnAction(e -> {Tasks.taskMap.get(btnLists[index]).run(); Menu.text = buttons[index].getText();});
             buttons[i].setTranslateX(btnX);
             buttons[i].setTranslateY(btnY);
             root.getChildren().add(buttons[i]);
