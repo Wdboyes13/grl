@@ -19,6 +19,7 @@ public class App extends Application{
         Scene scene = new Scene(root, 500, 300);
         primStage.setScene(scene);
         primStage.show();
+        System.out.println("Opened menu");
     }
     public void showTasks(Stage primStage, String[] tasks){
         Group root = new Group();
