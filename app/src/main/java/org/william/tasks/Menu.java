@@ -5,13 +5,22 @@ import javafx.scene.control.Button;
 
 public class Menu {
     public static void showMain(Stage primStage){
+        Tasks.putIndex(primStage);
+    int btnY = 20;
+    int btnX = 20;
+    Button[] buttons = {new Button("Morning"), new Button("Pack Bag"), new Button("Day 1"), new Button("Day 2")};
+    String[] btnLists = {"morning", "bag", "day1", "day2"};
     Group root = new Group();
-        Button morningBtn = new Button("Morning");
-        morningBtn.setOnAction(e -> ShowTasks.showTasks(primStage, Tasks.morning));
-        root.getChildren().add(morningBtn);
+        for (int i = 0; i < buttons.length; i++){
+            final int index = i;
+            buttons[i].setOnAction(e -> Tasks.taskMap.get(btnLists[index]).run());
+            buttons[i].setTranslateX(btnX);
+            buttons[i].setTranslateY(btnY);
+            root.getChildren().add(buttons[i]);
+            btnY += 20;
+        }
         Scene scene = new Scene(root, 500, 300);
         primStage.setScene(scene);
         primStage.show();
-        System.out.println("Opened menu");
     }
 }
