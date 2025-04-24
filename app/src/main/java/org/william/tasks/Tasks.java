@@ -6,8 +6,8 @@ import javafx.stage.*;
 public class Tasks {
     public static Map<String, Runnable> taskMap = new HashMap<>();
     
-    static String[] morning = {"Drink Coffee", "Take pills with coffee", "Get dressed", "Eat Breakfast", "Pack Bag (Go to list)", "Computer"};
-    static String[] bag = {"Headphones", "Charger", "Macbook", "Pen", "Keys", "Wallet", "Pills", "Watch", "Day stuff (See List)"};
+    static String[] morning = {"Drink Coffee", "Take pills with coffee", "Get dressed", "Eat Breakfast", "Pack Bag (Go to list)", "Out To Truck", "Computer"};
+    static String[] bag = {"Headphones", "Charger", "Macbook", "Pen", "Keys", "Wallet", "Pills", "Watch", "Binder", "Lunch", "Day stuff (See List)"};
     static String[] day1 = {"Saxophone", "Woodshop Shoes", "Band Music"};
     static String[] day2 = {"Book/Kobo", "PE Shoes"};
     public static void putIndex(Stage primStage){

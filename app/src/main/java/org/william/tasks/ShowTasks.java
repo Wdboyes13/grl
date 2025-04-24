@@ -42,7 +42,7 @@ public class ShowTasks {
             root.getChildren().add(checkbox);
             xsec += 1;
         }
-        Scene scene = new Scene(root, 200, 300);
+        Scene scene = new Scene(root, 200, 350);
         primStage.setScene(scene);
         primStage.show();
     }
