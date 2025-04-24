@@ -11,7 +11,8 @@ plugins {
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.1.0'
 }
-
+version = '1.0.1'
+def cmsg = "Version v${version}"
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -105,4 +106,22 @@ tasks.register('mkJar', Jar) {
 
 tasks.named('build') {
     dependsOn 'runPackScript', 'packapp'
+}
+
+task upload(type: Exec) {
+    dependsOn build
+    commandLine 'bash', '-c', "git add . && git commit -m '${cmsg}' && git tag -f ${version} && git push -f origin ${version} && git push origin main"
+}
+
+task publish(type: Exec) {
+    dependsOn upload
+    doFirst {
+        println '⚠️ WARNING: You are about to create a GitHub release. Continue? (y/n)'
+        def scanner = new Scanner(System.in)
+        def answer = scanner.nextLine()
+        if (answer != 'y') {
+            throw new GradleException('Publish aborted by user.')
+        }
+    }
+    commandLine 'gh', 'release', 'create', version, 'task.tar.gz', '--generate-notes', '--latest=true'
 }
