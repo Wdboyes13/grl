@@ -11,22 +11,16 @@ case "$OS" in
 esac
 
 COMMON_JAVA_OPTS="
-  -XX:+TieredCompilation
-  -XX:+UseCompressedOops
-  -XX:+UseStringDeduplication
-  -XX:+UseNUMA
-  -XX:+UseFastAccessorMethods
-  -XX:+OptimizeStringConcat
-  -XX:+AlwaysPreTouch
-  -Xverify:none
-  -Xshare:auto
-  -XX:+UnlockExperimentalVMOptions
-  -XX:+TrustFinalNonStaticFields
-  -XX:+UseG1GC
-  -XX:+UseLargePages
-  -Dsun.java2d.opengl=true
-  -Djava.awt.headless=false
-"
+  -XX:+UseG1GC 
+  -XX:+TieredCompilation 
+  -XX:MaxInlineLevel=15 
+  -XX:+UnlockExperimentalVMOptions 
+  -XX:+UseStringDeduplication 
+  -Dsun.java2d.opengl=true 
+  -Dprism.vsync=true
+  -Xms256m 
+  -Xmx512m 
+  "
 
 echo "Detected OS: $PLATFORM"
 
