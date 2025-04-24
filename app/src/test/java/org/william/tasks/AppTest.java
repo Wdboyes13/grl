@@ -4,7 +4,6 @@
 package org.william.tasks;
 
 import org.junit.jupiter.api.Test;
-import org.william.tasks.App;
 
 import static org.junit.jupiter.api.Assertions.*;
 
