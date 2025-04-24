@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 
 public class ShowTasks {
     public static void showTasks(Stage primStage, String[] tasks){
-        Tasks.putIndex(primStage);
+        
         Button back = new Button("<- Back");
         back.setOnAction(e -> Menu.showMain(primStage));
         Group root = new Group();

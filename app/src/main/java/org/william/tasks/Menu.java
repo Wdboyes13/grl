@@ -17,7 +17,7 @@ public class Menu {
             buttons[i].setTranslateX(btnX);
             buttons[i].setTranslateY(btnY);
             root.getChildren().add(buttons[i]);
-            btnY += 20;
+            btnY += 40;
         }
         Scene scene = new Scene(root, 500, 300);
         primStage.setScene(scene);
